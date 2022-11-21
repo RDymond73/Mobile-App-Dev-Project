@@ -9,9 +9,15 @@ import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+
+    // widgets for initial screen
     TextView homeTitle;
     Button homeBTN;
+
+    // intent for app main page
     Intent mainPage;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -1,36 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".exploreActivity">
+    tools:context=".exploreActivity"
+    android:padding="10dp"
+    android:orientation="vertical">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical" >
-
-        <Spinner
-            android:id="@+id/spinnerPart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="150dp"/>
-
-        <Spinner
-            android:id="@+id/spinnerPrice"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="150dp"
-            android:layout_toRightof="@id/spinnerPrice"/>
+        <EditText
+            android:id="@+id/searchbar"
+            android:layout_width="275dp"
+            android:layout_height="50dp"
+            android:padding="10dp" />
 
         <Button
-            android:id="@+id/searchBTN"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_toRightOf="@+id/searchbar"
             android:text="Search"
-            android:layout_marginLeft="130dp"/>
+            android:padding="10dp"
+            android:id="@+id/searchbtn" />
 
-    </LinearLayout>
 
-</android.support.constraint.ConstraintLayout>
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:id="@+id/filter"
+            android:layout_below="@+id/searchbar"
+            />
+
+
+        <ListView
+            android:id="@+id/listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="100dp"
+            android:padding="10dp"/>
+
+
+
+
+
+
+
+</RelativeLayout>
