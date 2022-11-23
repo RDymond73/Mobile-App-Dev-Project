@@ -49,7 +49,10 @@ public class exploreActivity<DBHelper> extends AppCompatActivity {
     String AllQuery = "";
 
 
+    // Temporary Fix for List View
 
+    ArrayAdapter adapter1;
+    String[] parts = {"i9  $400", "i7 $300", "i5 $200", "i3 $100", "Ryzen 7  $350", "Ryzen 5  $200", "Ryzen 3  $100", "RTX 3090 $1000", "RTX 2070 $500", "GTX 1080  $300"};
 
 
 
@@ -67,6 +70,14 @@ public class exploreActivity<DBHelper> extends AppCompatActivity {
 
         SpinnerAdapter = new ArrayAdapter<String>(this, R.layout.spinner_item, filters);
         SpinnerFilter.setAdapter(SpinnerAdapter);
+
+
+
+        // Temporary Fix
+        adapter1 = new ArrayAdapter<String>(this, R.layout.list_item,parts);
+        listView.setAdapter(adapter1);
+
+
 
         //searchbar.setText("");
         //createDB();
