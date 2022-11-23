@@ -6,7 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity"
     android:orientation="vertical"
-    android:padding="10dp">
+    android:padding="10dp"
+    android:background="@drawable/bcimg"
+    >
 
         <TextView
             android:id="@+id/homeTitle"
@@ -14,19 +16,31 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="150dp"
             android:text="PC Component Information Resource "
-            android:textColor="#0B0B0B"
+            android:textColor="#FFFFFF"
             android:textSize="30sp"
             android:textStyle="bold"
             android:layout_gravity="center_horizontal"
             android:textAlignment="center"
             />
 
+        <TextView
+            android:id="@+id/subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:text="Designed to support users with extensive information on computer systems and their components. "
+            android:textAlignment="center"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:paddingTop="15dp"/>
+
         <Button
             android:id="@+id/homeBTN"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Explore"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="40dp"
             android:layout_gravity="center_horizontal"
             />
 

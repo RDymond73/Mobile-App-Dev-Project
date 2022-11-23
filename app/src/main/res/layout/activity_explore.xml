@@ -6,13 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".exploreActivity"
     android:padding="10dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/bcimg">
 
         <EditText
             android:id="@+id/searchbar"
             android:layout_width="275dp"
             android:layout_height="50dp"
-            android:padding="10dp" />
+            android:padding="10dp"
+            android:textColor="@color/white"/>
 
         <Button
             android:layout_width="match_parent"
@@ -24,11 +26,10 @@
 
 
         <Spinner
+            android:id="@+id/filter"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:id="@+id/filter"
-            android:layout_below="@+id/searchbar"
-            />
+            android:layout_below="@+id/searchbar" />
 
 
         <ListView
@@ -36,7 +37,8 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="100dp"
-            android:padding="10dp"/>
+            android:cacheColorHint="#FFFFFF"
+            android:padding="10dp" />
 
 
 
