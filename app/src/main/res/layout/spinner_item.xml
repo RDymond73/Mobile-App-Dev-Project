@@ -4,7 +4,8 @@
     android:layout_height="match_parent"
     android:textAlignment="center"
     android:gravity="center_horizontal"
-    android:textColor="#000"
-    android:textSize="20sp">
+    android:textColor="#ff0000"
+    android:textSize="20sp"
+    >
 
 </TextView>

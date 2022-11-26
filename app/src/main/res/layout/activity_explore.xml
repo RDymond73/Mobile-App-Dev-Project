@@ -14,7 +14,8 @@
             android:layout_width="275dp"
             android:layout_height="50dp"
             android:padding="10dp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/white"
+            android:backgroundTint="#ff0000"/>
 
         <Button
             android:layout_width="match_parent"
@@ -22,14 +23,17 @@
             android:layout_toRightOf="@+id/searchbar"
             android:text="Search"
             android:padding="10dp"
-            android:id="@+id/searchbtn" />
+            android:backgroundTint="#ff0000	"
+            android:id="@+id/searchbtn"/>
 
 
         <Spinner
             android:id="@+id/filter"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:layout_below="@+id/searchbar" />
+            android:layout_below="@+id/searchbar"
+            android:backgroundTint="#ff0000	"
+            />
 
 
         <ListView
@@ -38,11 +42,8 @@
             android:layout_height="match_parent"
             android:layout_marginTop="100dp"
             android:cacheColorHint="#FFFFFF"
-            android:padding="10dp" />
-
-
-
-
+            android:padding="10dp"
+            />
 
 
 
