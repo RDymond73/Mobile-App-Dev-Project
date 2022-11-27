@@ -55,7 +55,7 @@ public class exploreActivity<DBHelper> extends AppCompatActivity {
     // Temporary Fix for List View
 
     ArrayAdapter adapter1;
-    String[] parts = {"i9  $400", "i7 $300", "i5 $200", "i3 $100", "Ryzen 7  $350", "Ryzen 5  $200", "Ryzen 3  $100", "RTX 3090 $1000", "RTX 2070 $500", "GTX 1080  $300"};
+    String[] parts = {"i9  $400", "i7 $300", "i5 $200", "i3 $100", "Ryzen 7  $350", "Ryzen 5  $200", "Ryzen 3  $100", "RTX 3090 $1000", "RTX 2070 $500", "GTX 1080  $300", "RTX 3070  $900" , "RTX 3060 $750", "RTX 2060  $500", "RTX 2060 Super  $550", "RX 6700  $380" , "RTX 3050  $349", "RX 580  $150", "RTX 3070 Ti  $749", "RTX 2080  $499", "RTX 2080 Super  $599" };
 
 
     @SuppressLint("MissingInflatedId")
