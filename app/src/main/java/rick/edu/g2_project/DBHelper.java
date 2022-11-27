@@ -1,16 +1,20 @@
 package rick.edu.g2_project;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
 
@@ -18,11 +22,14 @@ public class DBHelper extends SQLiteOpenHelper {
     private static String DB_NAME = "parts";
 
 
+    // added public
+    public static final String TB_CPU = "CPU";
+
     private SQLiteDatabase db;
     private Context myContext;
 
 
-    public DBHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+    public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, DB_NAME, null, 1);
         this.myContext = context;
     }
@@ -103,4 +110,35 @@ public class DBHelper extends SQLiteOpenHelper {
     public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
 
     }
+
+
+
+    // added method from iced tea labs https://icedtealabs.com/android/android-use-existing-sqlite-database-in-android-app/
+
+    public List<String> getAllUsers(){
+        List<String> listUsers = new ArrayList<String>();
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor c;
+
+        try {
+            c = db.rawQuery("SELECT * FROM " + TB_CPU , null);
+            if(c == null) return null;
+
+            String name;
+            c.moveToFirst();
+            do {
+                name = c.getString(1);
+                listUsers.add(name);
+            } while (c.moveToNext());
+            c.close();
+        } catch (Exception e) {
+            Log.e("tle99", e.getMessage());
+        }
+
+        db.close();
+
+        return listUsers;
+    }
+
+
 }

@@ -7,6 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -15,12 +16,14 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Spinner;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class exploreActivity<DBHelper> extends AppCompatActivity {
 
     public static SQLiteDatabase db;
-    DBHelper myDbHelper;
+    DBHelper dbHelper;
 
 
     // widgets for app main screen
@@ -55,8 +58,6 @@ public class exploreActivity<DBHelper> extends AppCompatActivity {
     String[] parts = {"i9  $400", "i7 $300", "i5 $200", "i3 $100", "Ryzen 7  $350", "Ryzen 5  $200", "Ryzen 3  $100", "RTX 3090 $1000", "RTX 2070 $500", "GTX 1080  $300"};
 
 
-
-
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,11 +73,9 @@ public class exploreActivity<DBHelper> extends AppCompatActivity {
         SpinnerFilter.setAdapter(SpinnerAdapter);
 
 
-
         // Temporary Fix
-        adapter1 = new ArrayAdapter<String>(this, R.layout.list_item,parts);
+        adapter1 = new ArrayAdapter<String>(this, R.layout.list_item, parts);
         listView.setAdapter(adapter1);
-
 
 
         //searchbar.setText("");
@@ -86,6 +85,7 @@ public class exploreActivity<DBHelper> extends AppCompatActivity {
 
 
         // spinner function not finished
+        /*
         SpinnerFilter.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
@@ -97,9 +97,10 @@ public class exploreActivity<DBHelper> extends AppCompatActivity {
 
             }
         });
-
+        */
 
         // need to fix search button listener
+        /*
         searchbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -113,6 +114,7 @@ public class exploreActivity<DBHelper> extends AppCompatActivity {
                 //categorySpinner.setSelection(6);
             }
         });
+           */
 
 
         // need to fix getResult method
@@ -137,8 +139,42 @@ public class exploreActivity<DBHelper> extends AppCompatActivity {
                 //listView.setVisibility(View.GONE);
                 //noResult.setVisibility(View.VISIBLE);
 
+             */
 
-    */
+
+        // Need to fix Database Helper to populate list view https://icedtealabs.com/android/android-use-existing-sqlite-database-in-android-app/
+        /*
+        dbHelper = new DataBaseHelper(getApplicationContext());
+        try {
+            dbHelper.createDataBase();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        listView = (ListView)findViewById(id.lvUsers);
+        List<String> listUsers = dbHelper.getAllUsers();
+
+        if(listUsers != null){
+            myAdapter = new ArrayAdapter<String>(getApplicationContext(),
+                    android.R.layout.simple_list_item_1, android.R.id.text1,
+                    listUsers);
+            listView.setAdapter(myAdapter);
+        }
+        */
+
+         /*
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
+
+
+    }
+
+     */
+
+
 
     }
 }
