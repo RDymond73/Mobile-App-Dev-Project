@@ -2,6 +2,7 @@ package rick.edu.g2_project;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
@@ -57,6 +58,16 @@ public class exploreActivity<DBHelper> extends AppCompatActivity {
     ArrayAdapter adapter1;
     String[] parts = {"i9  $400", "i7 $300", "i5 $200", "i3 $100", "Ryzen 7  $350", "Ryzen 5  $200", "Ryzen 3  $100", "RTX 3090 $1000", "RTX 2070 $500", "GTX 1080  $300", "RTX 3070  $900" , "RTX 3060 $750", "RTX 2060  $500", "RTX 2060 Super  $550", "RX 6700  $380" , "RTX 3050  $349", "RX 580  $150", "RTX 3070 Ti  $749", "RTX 2080  $499", "RTX 2080 Super  $599" };
 
+    String[] partNames = {"Intel Core i9 Processor", " Intel Core i7 Processor", "Intel Core i5 Processor", "Intel Core i3 Processor", "Ryzen 7", "Ryzen 5", "Ryzen 3", "RTX 3090", "RTX 2070", "GTX 1080", "RTX 3070" , "RTX 3060", "RTX 2060", "RTX 2060 Super", "RX 6700" , "RTX 3050", "RX 580", "RTX 3070 Ti", "RTX 2080", "RTX 2080 Super" };
+
+    String[] partPrices = {"$400", "$300", "$200", "$100", "$350", "$200", "$100", "$1000", "$500", "$300", "$900" , "$750", "$500", "$550", "$380" , "$349", "$150", "$749", "$499", "$599" };
+
+    String[] partDescs = {"This processor features a performance hybrid architecture designed for intelligent performance, optimized creating, and enhanced tuning to allow gamers to game with up to 5.8 GHz clock speed.", "test"};
+
+    String[] partLinks = {"Amazon, Intel, Best Buy", "test"};
+
+    //intent for listview
+    Intent intentPart;
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -76,6 +87,86 @@ public class exploreActivity<DBHelper> extends AppCompatActivity {
         // Temporary Fix
         adapter1 = new ArrayAdapter<String>(this, R.layout.list_item, parts);
         listView.setAdapter(adapter1);
+        intentPart = new Intent(this, item_activity.class);
+
+        //list on item click
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String position = listView.getItemAtPosition(i).toString();
+                if (i == 0) {
+                    String partName = partNames[i];
+                    String partPrice = partPrices[i];
+                    String partDesc = partDescs[i];
+                    String partLink = partLinks[i];
+                    intentPart.putExtra("partName", partName);
+                    intentPart.putExtra("partPrice", partPrice);
+                    intentPart.putExtra("partDesc", partDesc);
+                    intentPart.putExtra("partLink", partLink);
+                    exploreActivity.this.startActivity(intentPart);
+                }
+                else if (i == 1) {
+                    String partName = partNames[i];
+                    String partPrice = partPrices[i];
+                    String partDesc = partDescs[i];
+                    String partLink = partLinks[i];
+                    intentPart.putExtra("partName", partName);
+                    intentPart.putExtra("partPrice", partPrice);
+                    intentPart.putExtra("partDesc", partDesc);
+                    intentPart.putExtra("partLink", partLink);
+                    exploreActivity.this.startActivity(intentPart);
+                }
+                else if (i == 2) {
+                    String partName = partNames[i];
+                    String partPrice = partPrices[i];
+                    String partDesc = partDescs[i];
+                    String partLink = partLinks[i];
+                    intentPart.putExtra("partName", partName);
+                    intentPart.putExtra("partPrice", partPrice);
+                    intentPart.putExtra("partDesc", partDesc);
+                    intentPart.putExtra("partLink", partLink);
+                    exploreActivity.this.startActivity(intentPart);
+                }
+                else if (i == 3) {
+                    String partName = partNames[i];
+                    String partPrice = partPrices[i];
+                    String partDesc = partDescs[i];
+                    String partLink = partLinks[i];
+                    intentPart.putExtra("partName", partName);
+                    intentPart.putExtra("partPrice", partPrice);
+                    intentPart.putExtra("partDesc", partDesc);
+                    intentPart.putExtra("partLink", partLink);
+                    exploreActivity.this.startActivity(intentPart);
+                }
+                else if (i == 4) {
+                    String partName = partNames[i];
+                    String partPrice = partPrices[i];
+                    String partDesc = partDescs[i];
+                    String partLink = partLinks[i];
+                    intentPart.putExtra("partName", partName);
+                    intentPart.putExtra("partPrice", partPrice);
+                    intentPart.putExtra("partDesc", partDesc);
+                    intentPart.putExtra("partLink", partLink);
+                    exploreActivity.this.startActivity(intentPart);
+                }
+                else if (i == 5) {
+                    String partName = partNames[i];
+                    String partPrice = partPrices[i];
+                    String partDesc = partDescs[i];
+                    String partLink = partLinks[i];
+                    intentPart.putExtra("partName", partName);
+                    intentPart.putExtra("partPrice", partPrice);
+                    intentPart.putExtra("partDesc", partDesc);
+                    intentPart.putExtra("partLink", partLink);
+                    exploreActivity.this.startActivity(intentPart);
+                }
+            }
+        });
+
+
+
+
+
 
 
         //searchbar.setText("");
