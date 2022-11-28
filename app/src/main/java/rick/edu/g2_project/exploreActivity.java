@@ -181,6 +181,138 @@ public class exploreActivity extends AppCompatActivity {
                     intentPart.putExtra("partLink", partLink);
                     exploreActivity.this.startActivity(intentPart);
                 }
+                else if (i == 9) {
+                    String partName = partNames[i];
+                    String partPrice = partPrices[i];
+                    String partDesc = partDescs[i];
+                    String partLink = partLinks[i];
+                    intentPart.putExtra("partName", partName);
+                    intentPart.putExtra("partPrice", partPrice);
+                    intentPart.putExtra("partDesc", partDesc);
+                    intentPart.putExtra("partLink", partLink);
+                    exploreActivity.this.startActivity(intentPart);
+                }
+                else if (i == 10) {
+                    String partName = partNames[i];
+                    String partPrice = partPrices[i];
+                    String partDesc = partDescs[i];
+                    String partLink = partLinks[i];
+                    intentPart.putExtra("partName", partName);
+                    intentPart.putExtra("partPrice", partPrice);
+                    intentPart.putExtra("partDesc", partDesc);
+                    intentPart.putExtra("partLink", partLink);
+                    exploreActivity.this.startActivity(intentPart);
+                }
+                else if (i == 11) {
+                    String partName = partNames[i];
+                    String partPrice = partPrices[i];
+                    String partDesc = partDescs[i];
+                    String partLink = partLinks[i];
+                    intentPart.putExtra("partName", partName);
+                    intentPart.putExtra("partPrice", partPrice);
+                    intentPart.putExtra("partDesc", partDesc);
+                    intentPart.putExtra("partLink", partLink);
+                    exploreActivity.this.startActivity(intentPart);
+                }
+                else if (i == 12) {
+                    String partName = partNames[i];
+                    String partPrice = partPrices[i];
+                    String partDesc = partDescs[i];
+                    String partLink = partLinks[i];
+                    intentPart.putExtra("partName", partName);
+                    intentPart.putExtra("partPrice", partPrice);
+                    intentPart.putExtra("partDesc", partDesc);
+                    intentPart.putExtra("partLink", partLink);
+                    exploreActivity.this.startActivity(intentPart);
+                }
+                else if (i == 13) {
+                    String partName = partNames[i];
+                    String partPrice = partPrices[i];
+                    String partDesc = partDescs[i];
+                    String partLink = partLinks[i];
+                    intentPart.putExtra("partName", partName);
+                    intentPart.putExtra("partPrice", partPrice);
+                    intentPart.putExtra("partDesc", partDesc);
+                    intentPart.putExtra("partLink", partLink);
+                    exploreActivity.this.startActivity(intentPart);
+                }
+                else if (i == 14) {
+                    String partName = partNames[i];
+                    String partPrice = partPrices[i];
+                    String partDesc = partDescs[i];
+                    String partLink = partLinks[i];
+                    intentPart.putExtra("partName", partName);
+                    intentPart.putExtra("partPrice", partPrice);
+                    intentPart.putExtra("partDesc", partDesc);
+                    intentPart.putExtra("partLink", partLink);
+                    exploreActivity.this.startActivity(intentPart);
+                }
+                else if (i == 15) {
+                    String partName = partNames[i];
+                    String partPrice = partPrices[i];
+                    String partDesc = partDescs[i];
+                    String partLink = partLinks[i];
+                    intentPart.putExtra("partName", partName);
+                    intentPart.putExtra("partPrice", partPrice);
+                    intentPart.putExtra("partDesc", partDesc);
+                    intentPart.putExtra("partLink", partLink);
+                    exploreActivity.this.startActivity(intentPart);
+                }
+                else if (i == 16) {
+                    String partName = partNames[i];
+                    String partPrice = partPrices[i];
+                    String partDesc = partDescs[i];
+                    String partLink = partLinks[i];
+                    intentPart.putExtra("partName", partName);
+                    intentPart.putExtra("partPrice", partPrice);
+                    intentPart.putExtra("partDesc", partDesc);
+                    intentPart.putExtra("partLink", partLink);
+                    exploreActivity.this.startActivity(intentPart);
+                }
+                else if (i == 17) {
+                    String partName = partNames[i];
+                    String partPrice = partPrices[i];
+                    String partDesc = partDescs[i];
+                    String partLink = partLinks[i];
+                    intentPart.putExtra("partName", partName);
+                    intentPart.putExtra("partPrice", partPrice);
+                    intentPart.putExtra("partDesc", partDesc);
+                    intentPart.putExtra("partLink", partLink);
+                    exploreActivity.this.startActivity(intentPart);
+                }
+                else if (i == 18) {
+                    String partName = partNames[i];
+                    String partPrice = partPrices[i];
+                    String partDesc = partDescs[i];
+                    String partLink = partLinks[i];
+                    intentPart.putExtra("partName", partName);
+                    intentPart.putExtra("partPrice", partPrice);
+                    intentPart.putExtra("partDesc", partDesc);
+                    intentPart.putExtra("partLink", partLink);
+                    exploreActivity.this.startActivity(intentPart);
+                }
+                else if (i == 19) {
+                    String partName = partNames[i];
+                    String partPrice = partPrices[i];
+                    String partDesc = partDescs[i];
+                    String partLink = partLinks[i];
+                    intentPart.putExtra("partName", partName);
+                    intentPart.putExtra("partPrice", partPrice);
+                    intentPart.putExtra("partDesc", partDesc);
+                    intentPart.putExtra("partLink", partLink);
+                    exploreActivity.this.startActivity(intentPart);
+                }
+                else if (i == 20) {
+                    String partName = partNames[i];
+                    String partPrice = partPrices[i];
+                    String partDesc = partDescs[i];
+                    String partLink = partLinks[i];
+                    intentPart.putExtra("partName", partName);
+                    intentPart.putExtra("partPrice", partPrice);
+                    intentPart.putExtra("partDesc", partDesc);
+                    intentPart.putExtra("partLink", partLink);
+                    exploreActivity.this.startActivity(intentPart);
+                }
             }
         });
 
