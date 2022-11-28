@@ -1,144 +1,143 @@
 package rick.edu.g2_project;
 
+//                                          !!!***NOTE***!!!
+//If any changes are made to the database either increase the DB_VERSION number, or uninstall the app within the emulator
+//so that the onUpgrade method is called to create a new database
+//if you do not do this the app will either crash or not work as intended because the db is still contain the previous tables and columns
+
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
-import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
 import android.database.sqlite.SQLiteOpenHelper;
-import android.support.annotation.Nullable;
-import android.util.Log;
-
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.ArrayList;
-import java.util.List;
 
 public class DBHelper extends SQLiteOpenHelper {
-
-    private static String DB_PATH = "/data/data/edu.oakland.mobile-app-dev-project-main/databases/";
-    private static String DB_NAME = "parts";
-
-
-    // added public
-    public static final String TB_CPU = "CPU";
+    //db name
+    public static final String DB_NAME = "MyDbName.db";
+    //db version
+    public static final int DB_VERSION = 3;
 
     private SQLiteDatabase db;
-    private Context myContext;
 
-
-    public DBHelper(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
-        super(context, DB_NAME, null, 1);
-        this.myContext = context;
-    }
-
-    private boolean checkDataBase(){
-        SQLiteDatabase checkDB = null;
-        try {
-            String myPath = DB_PATH + DB_NAME;
-            checkDB = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READONLY);
-
-        } catch (SQLiteException e) {
-            //database does't exist yet.
-        }
-        if (checkDB != null) {
-            checkDB.close();
-        }
-        return checkDB != null ? true : false;
-    }
-
-
-    public void createDataBase() throws IOException {
-        boolean dbExist = checkDataBase();
-        if (dbExist) {
-            //do nothing - database already exist
-        } else {
-            //By calling this method and empty database will be created into the default system path
-            //of your application so we are gonna be able to overwrite that database with our database.
-            this.getReadableDatabase();
-            try {
-                copyDataBase();
-            } catch (IOException e) {
-                throw new Error("Error copying database");
-
-            }
-        }
-
-    }
-
-    public void openDataBase() throws SQLException {
-        //Open the database
-        String myPath = DB_PATH + DB_NAME;
-        db = SQLiteDatabase.openDatabase(myPath, null, SQLiteDatabase.OPEN_READWRITE);
+    public DBHelper(Context context) {
+        super(context, DB_NAME, null, DB_VERSION);
     }
 
     @Override
-    public synchronized void close() {
-        if (db != null)
-            db.close();
-        super.close();
-    }
+    public void onCreate(SQLiteDatabase db) {
+        this.db = db;
 
-    private void copyDataBase() throws IOException{
-        //Open your local db as the input file
-        InputStream myInput = myContext.getAssets().open(DB_NAME + ".db");
-        //InputStream myInput = myContext.getAssets().open(DB_NAME );
-        // Path to the just created empty db
-        String outFileName = DB_PATH + DB_NAME;
-        //Open the empty db file that was created by rick.edu.g2_project.DBHelper as an output file
-        OutputStream myOutput = new FileOutputStream(outFileName);
-        //transfer bytes from the input file to the output file
-        byte[] buffer = new byte[1024];
-        int length;
-        while ((length = myInput.read(buffer)) > 0) {
-            myOutput.write(buffer, 0, length);
-        }
-        //Close the streams or the output file
-        myOutput.flush();//write to output file
-        myOutput.close();
-        myInput.close();
+        final String CREATE_PC_PART_TABLE = "CREATE TABLE " +
+                ExploreContract.PcPartsTable.TABLE_NAME + " ( " +
+                ExploreContract.PcPartsTable._ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + //_ID is from BaseColumns
+                ExploreContract.PcPartsTable.COLUMN_CPU + " TEXT, " +
+                ExploreContract.PcPartsTable.COLUMN_CPU_PRICE + " TEXT" +
+                ")";
+
+        db.execSQL(CREATE_PC_PART_TABLE);
+        fillPcPartsTable();
     }
 
     @Override
-    public void onCreate(SQLiteDatabase sqLiteDatabase) {
-
+    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS " + ExploreContract.PcPartsTable.TABLE_NAME);
+        onCreate(db);
     }
 
-    @Override
-    public void onUpgrade(SQLiteDatabase sqLiteDatabase, int i, int i1) {
+    private void fillPcPartsTable() {
+        Explore p1 = new Explore("i9", 400);
+        addPcPart(p1);
 
+        Explore p2 = new Explore("i7", 300);
+        addPcPart(p2);
+
+        Explore p3 = new Explore("i5", 200);
+        addPcPart(p3);
+
+        Explore p4 = new Explore("i3", 100);
+        addPcPart(p4);
+
+        Explore p5 = new Explore("Ryzen 7", 350);
+        addPcPart(p5);
+
+        Explore p6 = new Explore("Ryzen 5", 200);
+        addPcPart(p6);
+
+        Explore p7 = new Explore("Ryzen 3", 100);
+        addPcPart(p7);
+
+        Explore p8 = new Explore("RTX 3090", 1000);
+        addPcPart(p8);
+
+        Explore p9 = new Explore("RTX 2070", 500);
+        addPcPart(p9);
+
+        Explore p10 = new Explore("GTX 1080", 300);
+        addPcPart(p10);
+
+        Explore p11 = new Explore("RTX 3070", 900);
+        addPcPart(p11);
+
+        Explore p12 = new Explore("RTX 3060", 900);
+        addPcPart(p12);
+
+        Explore p13 = new Explore("RTX 2060", 500);
+        addPcPart(p13);
+
+        Explore p14 = new Explore("RTX 2060 Super", 550);
+        addPcPart(p14);
+
+        Explore p15 = new Explore("RX 6700", 380);
+        addPcPart(p15);
+
+        Explore p16 = new Explore("RTX 3050", 349);
+        addPcPart(p16);
+
+        Explore p17 = new Explore("RX 580", 150);
+        addPcPart(p17);
+
+        Explore p18 = new Explore("RTX 3070 Ti", 749);
+        addPcPart(p18);
+
+        Explore p19 = new Explore("RTX 2080", 499);
+        addPcPart(p19);
+
+        Explore p20 = new Explore("RTX 2080 Super", 599);
+        addPcPart(p20);
     }
 
+    private void addPcPart(Explore explore) {
+        ContentValues contentValues = new ContentValues();
 
+        contentValues.put(ExploreContract.PcPartsTable.COLUMN_CPU, explore.getCpu());
+        contentValues.put(ExploreContract.PcPartsTable.COLUMN_CPU_PRICE, explore.getCpu_price());
 
-    // added method from iced tea labs https://icedtealabs.com/android/android-use-existing-sqlite-database-in-android-app/
+        db.insert(ExploreContract.PcPartsTable.TABLE_NAME, null, contentValues);
+    }
 
-    public List<String> getAllUsers(){
-        List<String> listUsers = new ArrayList<String>();
-        SQLiteDatabase db = this.getWritableDatabase();
-        Cursor c;
+    @SuppressLint("Range")
+    public ArrayList<Explore> getAllParts() {
+        ArrayList<Explore> arrayList = new ArrayList<>();
+        db = getReadableDatabase();
 
-        try {
-            c = db.rawQuery("SELECT * FROM " + TB_CPU , null);
-            if(c == null) return null;
+        Cursor cursor = db.rawQuery("SELECT * FROM "
+                        + ExploreContract.PcPartsTable.TABLE_NAME,
+                null);
 
-            String name;
-            c.moveToFirst();
+        if (cursor.moveToFirst()) {
             do {
-                name = c.getString(1);
-                listUsers.add(name);
-            } while (c.moveToNext());
-            c.close();
-        } catch (Exception e) {
-            Log.e("tle99", e.getMessage());
+                Explore explore = new Explore();
+
+                explore.setId(cursor.getInt(cursor.getColumnIndex(ExploreContract.PcPartsTable._ID)));
+                explore.setCpu(cursor.getString(cursor.getColumnIndex(ExploreContract.PcPartsTable.COLUMN_CPU)));
+                explore.setCpu_price(cursor.getInt(cursor.getColumnIndex(ExploreContract.PcPartsTable.COLUMN_CPU_PRICE)));
+
+                arrayList.add(explore);
+            } while (cursor.moveToNext());
         }
-
-        db.close();
-
-        return listUsers;
+        cursor.close();
+        return arrayList;
     }
-
-
 }
