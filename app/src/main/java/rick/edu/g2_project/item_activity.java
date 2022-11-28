@@ -29,21 +29,18 @@ public class item_activity extends AppCompatActivity {
         partDesc = findViewById(R.id.partDesc);
         partLink = findViewById(R.id.partLink);
         MyIntent = getIntent();
-//        //get part details from explore view
-//        //nameString = MyIntent.getStringExtra("partName");
-//        //priceString = MyIntent.getStringExtra("partPrice");
+        //get part details from explore view
+        nameString = MyIntent.getStringExtra("partName");
+        priceString = MyIntent.getStringExtra("partPrice");
         descString = MyIntent.getStringExtra("partDesc");
         linkString = MyIntent.getStringExtra("partLink");
-//
-//
-//        //set textviews with part details
-//        //partName.setText(nameString);
-//        //partPrice.setText(priceString);
+
+
+        //set textviews with part details
+        partName.setText(nameString);
+        partPrice.setText(priceString);
         partDesc.setText(descString);
         partLink.setText("Vendors: " + linkString);
-
-
-
 
 
 
